@@ -36,6 +36,24 @@ CldrPlurals::RubyRuntime.n(num)  # => 1.04
 CldrPlurals::RubyRuntime.i(num)  # => 1
 ```
 
+This runtime was created primarily for the [cldr-plurals](https://github.com/camertron/cldr-plurals) project, which can parse and emit Ruby code for a set of plural rules. Here's an example:
+
+```ruby
+require 'cldr-plurals'
+require 'cldr-plurals/ruby_runtime'
+
+rules = CldrPlurals::Compiler::RuleList.new(:ru).tap do |rule_list|
+  rule_list.add_rule(:one, 'v = 0 and i % 10 = 1 and i % 100 != 11')
+  rule_list.add_rule(:few, 'v = 0 and i % 10 = 2..4 and i % 100 != 12..14')
+  rule_list.add_rule(:many, 'v = 0 and i % 10 = 0 or v = 0 and i % 10 = 5..9 or v = 0 and i % 100 = 11..14')
+end
+
+ruby_code = rules.to_code(:ruby)
+rule_proc = eval(ruby_code)
+
+rule_proc.call('3', CldrPlurals::RubyRuntime)  # => :few
+```
+
 ## Requirements
 
 No external requirements.

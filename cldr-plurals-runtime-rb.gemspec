@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
   s.authors  = ["Cameron Dutro"]
   s.email    = ["camertron@gmail.com"]
   s.homepage = "http://github.com/camertron"
+  s.license  = "MIT"
 
   s.description = s.summary = 'Ruby runtime methods for CLDR plural rules (see camertron/cldr-plurals).'
 

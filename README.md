@@ -27,6 +27,7 @@ The CLDR data set contains [plural information](http://unicode.org/cldr/trac/bro
 | w      | number of visible fraction digits in n, without trailing zeros.|
 | f      | visible fractional digits in n, with trailing zeros.           |
 | t      | visible fractional digits in n, without trailing zeros.        |
+| c/e    | compact decimal exponent value                                 |
 
 cldr-plurals-runtime-rb is an implementation of these calculations in Ruby. You can use them via the `CldrPlurals::RubyRuntime` module. Note that all methods take a stringified number as input:
 

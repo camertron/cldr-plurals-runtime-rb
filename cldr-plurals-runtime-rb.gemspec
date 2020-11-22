@@ -10,9 +10,7 @@ Gem::Specification.new do |s|
   s.license  = "MIT"
 
   s.description = s.summary = 'Ruby runtime methods for CLDR plural rules (see camertron/cldr-plurals).'
-
   s.platform = Gem::Platform::RUBY
-  s.has_rdoc = true
 
   s.require_path = 'lib'
   s.files = Dir["{lib,spec}/**/*", "Gemfile", "History.txt", "LICENSE.txt", "README.md", "Rakefile", "cldr-plurals-runtime-rb.gemspec"]

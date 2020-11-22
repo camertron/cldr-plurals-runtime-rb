@@ -34,6 +34,34 @@ describe CldrPlurals::RubyRuntime do
     end
   end
 
+  context 'with an exponent' do
+    let(:num) { '1.203e1' }
+
+    it '#n returns n without trailing zeroes' do
+      expect(rt.n(num)).to eq(12.03)
+    end
+
+    it '#i returns the int value multiplied by the power' do
+      expect(rt.i(num)).to eq(12)
+    end
+
+    it '#v returns num of visible fraction digits (with zeroes)' do
+      expect(rt.v(num)).to eq(2)
+    end
+
+    it '#w returns num of visible fraction digits (without zeroes)' do
+      expect(rt.w(num)).to eq(1)
+    end
+
+    it '#f returns visible fractional digits (with zeroes)' do
+      expect(rt.f(num)).to eq(3)
+    end
+
+    it '#t returns visible fractional digits (without zeroes)' do
+      expect(rt.t(num)).to eq(3)
+    end
+  end
+
   context 'with a zero decimal' do
     let(:num) { '1.0' }
 
@@ -162,7 +190,7 @@ describe CldrPlurals::RubyRuntime do
     end
 
     it '#w returns num of visible fraction digits (without zeroes)' do
-      expect(rt.w(num)).to eq(2)
+      expect(rt.w(num)).to eq(1)
     end
 
     it '#f returns visible fractional digits (with zeroes)' do

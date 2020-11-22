@@ -1,7 +1,0 @@
-== 1.0.1
-
-* Adding MIT license.
-
-== 1.0.0
-
-* Birthday!

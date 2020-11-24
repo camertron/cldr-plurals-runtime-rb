@@ -64,6 +64,8 @@ module CldrPlurals
       private
 
       def shift_right(n)
+        return [int, frac] if exp == 0
+
         new_int = "#{int}#{frac[0...n]}"
 
         if n - frac.length > 0
@@ -77,6 +79,8 @@ module CldrPlurals
       end
 
       def shift_left(n)
+        return [int, frac] if exp == 0
+
         new_frac = ''
 
         if n - int.length > 0

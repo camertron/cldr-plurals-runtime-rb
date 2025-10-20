@@ -40,7 +40,7 @@ module CldrPlurals
       end
 
       def to_s
-        ''.tap do |result|
+        (+'').tap do |result|
           result << "#{sign}#{int}"
           result << ".#{frac}" unless frac.empty?
           result << "e#{exp}" if exp != 0

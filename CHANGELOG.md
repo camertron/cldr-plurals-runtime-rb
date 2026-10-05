@@ -1,3 +1,6 @@
+## 1.2.0
+* Remove frozen string warning.
+
 ## 1.1.0
 * Add support for CLDR v38 syntax.
 
